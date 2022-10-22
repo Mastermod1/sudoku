@@ -1,0 +1,1 @@
+This is C++ console Sudoku game project.

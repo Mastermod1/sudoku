@@ -19,12 +19,11 @@ int main()
     TEST("WhenGivenTruePrintsCorrect", true);
     TEST("WhenGivenFalsePrintsIncorrect", false);
     TEST("WhenFalseExpPrintsIncorrect", 1 == 0);
-    std::cout << "\n\n";
     if(incorects.empty())
         std::cout << "### ALL TESTS PASSED! ALL GREEN ###\n";
     else
     {
-        std::cout << "These tests didn't pass:\n";
+        std::cout << "###########################\nThese tests didn't pass:\n";
         while(not incorects.empty())
         {
             std::cout << incorects.front();
