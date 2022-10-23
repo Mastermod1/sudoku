@@ -1,6 +1,5 @@
-#include "board.hpp"
+#pragma once
 #include <iostream>
-#include <stdlib.h>
 #include <string>
 
 class Display
@@ -27,7 +26,7 @@ class Display
                     std::cout  << i / 9 << " ";
                 if((i - 1) % 3 == 0)
                     std::cout << "|";
-                std::cout << board.cellValue(i - 1);
+                std::cout << board.getCell(i - 1);
                 if(i % 9 == 0)
                     std::cout << "|\n";
                 

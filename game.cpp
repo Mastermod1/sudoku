@@ -1,6 +1,7 @@
-#include <iostream>
+#include "Sources/solver.cpp"
 #include "Headers/display.hpp"
-#include "Headers/solver.hpp"
+#include <iostream>
+
 
 int main()
 {
@@ -23,5 +24,4 @@ int main()
         display.printBoard();
     else
         std::cout << "didn't solve\n";
-    //display.printBoard();
 }
