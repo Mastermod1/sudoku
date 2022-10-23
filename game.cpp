@@ -9,6 +9,5 @@ int main()
     {
         display.printBoard();
         board.setCell(i*2, 9);
-        std::cout << "\n";
     }
 }
