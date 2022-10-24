@@ -19,7 +19,7 @@
 
     Unit tests:
         ./Sudoku_UT
-<pre>
+</pre>
 
 <h3>Used frameworks<h3>
 <ul>
