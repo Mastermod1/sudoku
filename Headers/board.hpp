@@ -12,7 +12,7 @@ class Board
 {
     public:
         Board() {board.fill(0);}
-        Board(std::array<int, 81> brd) {board = brd;};
+        Board(std::array<int, 81> givenBoard) {board = givenBoard;};
         int getCell(int pos) { return board[pos];}
         void setCell(int pos, int val);
     private:

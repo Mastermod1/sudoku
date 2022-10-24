@@ -33,6 +33,15 @@ class Display
             }
             printHorizontalLine(9 + 4);
         }
+        Display& operator = (const Display& other)
+        {
+            if(this == &other)
+                return *this;
+
+            this->board = other.board;
+
+            return *this;
+        }
     private:
         void printHorizontalLine(int length)
         {
