@@ -18,5 +18,9 @@ void Input::handleInput(int row, int col, int val)
 
 bool Input::validateInput(int row, int col, int val)
 {
+    if(board.getCell(tabToPos(row, col) > 0))
+        return false;
+    if(val < 1 && val > 9)
+        return false;
     return valueNotInRow(row, val) && valueNotInCol(col, val) && valueNotInSquare(row, col, val);
 }
