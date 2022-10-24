@@ -1,6 +1,6 @@
 #include "../Sources/board.cpp"
 #include "../Sources/input.cpp"
-#include "display.hpp"
+#include "../Sources/display.cpp"
 #include <iostream>
 
 
