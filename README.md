@@ -1,4 +1,5 @@
 <h1>Sudoku</h1>
+
 <h2>This is C++ console Sudoku game project.</h2>
 
 <h3>To do:</h3>
@@ -11,17 +12,18 @@
 </ul>
 
 <h3>Usage</h3>
+<p>Build and run command:</p>
 <pre>
-    Build and run command:
-        mkdir build && cd build
-        cmake ..
-        make && ./Sudoku_EXEC
-
-    Unit tests:
-        ./Sudoku_UT
+    mkdir build && cd build
+    cmake ..
+    make && ./Sudoku_EXEC
+</pre>
+<p>Unit tests:</p>
+<pre>
+    ./Sudoku_UT
 </pre>
 
-<h3>Used frameworks<h3>
+<h3>Used frameworks</h3>
 <ul>
     <li>Unit Test framework<br>https://eecs280staff.github.io/unit_test_framework</li>
 </ul>
