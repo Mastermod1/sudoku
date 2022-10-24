@@ -1,7 +1,12 @@
+#include "../Sources/validator.cpp"
+#include <iostream>
 
-class Input
+class Input : public Validator
 {
     public:
-        Input(){}
+        Input(Board& board) : Validator(board), board(board){}
+        void handleInput(int row, int col, int val);
     private:
+        bool validateInput(int row, int col, int val);
+        Board& board;
 };

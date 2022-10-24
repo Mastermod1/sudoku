@@ -18,13 +18,13 @@ Game::Game()
 void Game::startGameLoop()
 {
     Display display(board);
+    Input input(board);
     int row, col, val;
     while(true)
     {
         display.printBoard();
         std::cout << "Value: Row: Col:\n";
         std::cin >> val >> row >> col;
-        //input.handleInput();
-        board.setCell(tabToPos(row, col), val);
+        input.handleInput(row, col, val);
     }
 }

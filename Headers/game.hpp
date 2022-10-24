@@ -11,5 +11,4 @@ class Game
         void startGameLoop();
     private:
         Board board;
-        Input input;
 };
