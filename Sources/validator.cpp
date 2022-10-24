@@ -36,3 +36,8 @@ bool Validator::valueNotInCol(int col, int value)
     }
     return true;
 }
+
+bool Validator::safeInsertOperation(int row, int col, int value)
+{
+    return valueNotInRow(row, value) && valueNotInCol(col, value) && valueNotInSquare(row, col, value);
+}
