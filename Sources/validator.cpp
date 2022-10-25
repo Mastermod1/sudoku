@@ -2,8 +2,8 @@
 
 bool Validator::valueNotInSquare(int row, int col, int value)
 {
-    int squaredCol = col / 3;
-    int squaredRow = row / 3;
+    int squaredRow = row - row % 3;
+    int squaredCol = col - col % 3;
 
     for(int i = 0; i < 3; i++)
     {

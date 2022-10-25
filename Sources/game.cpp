@@ -21,8 +21,8 @@ void Game::checkGameState()
 {
     if(board.isFilled())
         state = Won;
-    // if(not isSolveable(board.getBoard(), 0, 0))
-    //     state = Lost;
+    if(not isSolveable(board.getBoard(), 0, 0))
+        state = Lost;
 }
 
 void Game::startGameLoop()
@@ -44,6 +44,7 @@ void Game::startGameLoop()
 
 bool Game::isSolveable(std::array<std::array<int, 9>, 9> grid, int row, int col)
 {
+    std::cout << "ENTER\n";
     if(row == 8 and col == 9)
         return true;
 
@@ -66,5 +67,6 @@ bool Game::isSolveable(std::array<std::array<int, 9>, 9> grid, int row, int col)
         }
         grid[row][col] = 0;
     }
+    std::cout << "FALSE\n";
     return false;
 }
