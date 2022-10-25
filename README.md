@@ -6,7 +6,7 @@
 <ul>
     <li>random board initialization</li>
     <li>difficulty level selector</li>
-    <li>integrate Solver with Validator</li>
+    <li>integrate Solver with Game Class</li>
     <li>handleInput() handles more actions</li>
     <li>end game on end</li>
 </ul>

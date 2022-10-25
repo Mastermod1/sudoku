@@ -1,13 +1,14 @@
 #include "../Headers/board.hpp"
 
-void Board::setCell(int pos, int val)
+void Board::setCell(int row, int col, int val)
 {
-    if(val > 9 or val < 0) 
-        return; 
-    board[pos] = val;
+    board[row][col] = val;
 }
 
 bool Board::isFilled()
 {
-    return std::find(board.begin(), board.end(), 0) == board.end();
+    for(int row = 0; row < 9; row++)
+        if(std::find(board[row].begin(), board[row].end(), 0) != board[row].end())
+            return false;
+    return true;
 }

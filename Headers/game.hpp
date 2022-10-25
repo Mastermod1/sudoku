@@ -19,7 +19,7 @@ class Game
         void startGameLoop();
         void checkGameState();
     private:
-        bool isSolveable(std::array<int, 81> grid, int row, int col);
+        bool isSolveable(std::array<std::array<int, 9>, 9> grid, int row, int col);
         Board board;
         GameState state;
 };

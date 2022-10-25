@@ -3,20 +3,15 @@
 #include <initializer_list>
 #include <algorithm>
 
-
-int tabToPos(int row, int col)
-{
-    return row * 9 + col;
-}
 class Board
 {
     public:
-        Board() {board.fill(0);}
-        Board(std::array<int, 81> givenBoard) {board = givenBoard;}
-        int getCell(int pos) {return board[pos];}
-        void setCell(int pos, int val);
+        Board() {board = {};}
+        Board(std::array<std::array<int, 9>, 9> givenBoard) {board = givenBoard;}
+        int getCell(int row, int col) {return board[row][col];}
+        void setCell(int row, int col, int val);
         bool isFilled();
-        std::array<int, 81> getBoard() {return board;}
+        std::array<std::array<int, 9>, 9> getBoard() {return board;}
     private:
-        std::array<int, 81> board;
+        std::array<std::array<int, 9>, 9> board;
 };
