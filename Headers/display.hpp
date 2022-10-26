@@ -9,7 +9,6 @@ class Display
         void printBoard();
         
     private:
-        void printHorizontalLine(int length);
-        
         Board& board;
+        void printHorizontalLine(int length);
 };

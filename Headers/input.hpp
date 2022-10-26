@@ -7,6 +7,6 @@ class Input : public Validator
         Input(Board& board) : Validator(board.getBoard()), board(board) {}
         void handleInput(int row, int col, int val);
     private:
-        bool validateInput(int row, int col, int val);
         Board& board;
+        bool validateInput(int row, int col, int val);
 };
