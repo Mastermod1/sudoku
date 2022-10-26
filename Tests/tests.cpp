@@ -1,6 +1,5 @@
 #include "unit_test_framework.h"
 #include "../Sources/board.cpp"
-#include "../Sources/validator.cpp"
 
 
 // Validator
@@ -19,7 +18,7 @@ TEST(ValueNotInSquare)
             {0, 0, 5, 2, 0, 6, 3, 0, 0}
         }}
     );
-    Validator validator(board);
+    Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInSquare(8,0,7));
 }
 TEST(ValueNotInCol)
@@ -37,7 +36,7 @@ TEST(ValueNotInCol)
             {0, 0, 5, 2, 0, 6, 3, 0, 0}
         }}
     );
-    Validator validator(board);
+    Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInCol(0,7));
 }
 TEST(ValueNotInRow)
@@ -55,7 +54,7 @@ TEST(ValueNotInRow)
             {0, 0, 5, 2, 0, 6, 3, 0, 0}
         }}
     );
-    Validator validator(board);
+    Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInRow(0,2));
 }
 TEST(SquaredCheckLikeInGamev2)
@@ -73,7 +72,7 @@ TEST(SquaredCheckLikeInGamev2)
             {0, 0, 5, 2, 0, 6, 3, 0, 0}
         }}
     );
-    Validator validator(board);
+    Validator validator(board.getBoard());
     ASSERT_TRUE(validator.safeInsertOperation(0,1,1));
 }
 TEST(SquaredCheckLikeInGame)
@@ -91,7 +90,7 @@ TEST(SquaredCheckLikeInGame)
             {0,0,0,0,0,0,0,0,0}
         }}
     );
-    Validator validator(board);
+    Validator validator(board.getBoard());
     ASSERT_TRUE(validator.safeInsertOperation(0,1,1));
 }
 TEST(SquaredCheck)
@@ -109,7 +108,7 @@ TEST(SquaredCheck)
             {0,0,0,0,0,0,0,0,0}
         }}
     );
-    Validator validator(board);
+    Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInSquare(1,1,9));
 }
 // Board tests from board.hpp

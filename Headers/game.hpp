@@ -6,6 +6,7 @@
 #include "../Sources/input.cpp"
 #include "../Sources/display.cpp"
 
+
 enum GameState
 {
     InProgress = -1,
@@ -19,7 +20,6 @@ class Game
         void startGameLoop();
         void checkGameState();
     private:
-        bool isSolveable(std::array<std::array<int, 9>, 9> grid, int row, int col);
         Board board;
         GameState state;
 };

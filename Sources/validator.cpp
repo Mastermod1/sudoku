@@ -9,7 +9,7 @@ bool Validator::valueNotInSquare(int row, int col, int value)
     {
         for(int j = 0; j < 3; j++)
         {
-            if(board.getCell(squaredRow + i, squaredCol + j) == value)
+            if(grid[squaredRow + i][squaredCol + j] == value)
                 return false;
         }
     }
@@ -20,7 +20,7 @@ bool Validator::valueNotInRow(int row, int value)
 {   
     for(int i = 0; i < 9; i++)
     {
-        if(board.getCell(row, i) == value)
+        if(grid[row][i] == value)
             return false;
     }
     return true;
@@ -30,7 +30,7 @@ bool Validator::valueNotInCol(int col, int value)
 {
     for(int i = 0; i < 9; i++)
     {
-        if(board.getCell(i, col) == value)
+        if(grid[i][col] == value)
             return false;
     }
     return true;
