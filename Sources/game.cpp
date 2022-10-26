@@ -21,7 +21,7 @@ void Game::checkGameState()
 {
     if(board.isFilled())
         state = Won;
-    if(board.isSolveable(board.getBoard(), 0 ,0))
+    if(not board.isSolveable(board.getBoard(), 0 ,0))
         state = Lost;
 }
 

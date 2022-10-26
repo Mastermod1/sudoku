@@ -112,6 +112,41 @@ TEST(SquaredCheck)
     ASSERT_TRUE(validator.valueNotInSquare(1,1,9));
 }
 // Board tests from board.hpp
+TEST(IsSolveableGivenSolveableBoardWithInputReturnsTrue)
+{
+    Board board(
+        {{
+            {3, 0, 6, 5, 0, 8, 4, 0, 0},
+            {5, 2, 0, 0, 0, 0, 0, 0, 0},
+            {0, 8, 7, 0, 0, 0, 0, 3, 1},
+            {0, 0, 3, 0, 1, 0, 0, 8, 0},
+            {9, 0, 0, 8, 6, 3, 0, 0, 5},
+            {0, 5, 0, 0, 9, 0, 6, 0, 0}, 
+            {1, 3, 0, 0, 0, 0, 2, 5, 0},
+            {0, 0, 0, 0, 0, 0, 0, 7, 4},
+            {0, 0, 5, 2, 0, 6, 3, 0, 0}
+        }}
+    );
+    board.setCell(0, 1, 1);
+    ASSERT_TRUE(board.isSolveable(board.getBoard(), 0, 0));
+}
+TEST(IsSolveableGivenSolveableBoardReturnsTrue)
+{
+    Board board(
+        {{
+            {3, 0, 6, 5, 0, 8, 4, 0, 0},
+            {5, 2, 0, 0, 0, 0, 0, 0, 0},
+            {0, 8, 7, 0, 0, 0, 0, 3, 1},
+            {0, 0, 3, 0, 1, 0, 0, 8, 0},
+            {9, 0, 0, 8, 6, 3, 0, 0, 5},
+            {0, 5, 0, 0, 9, 0, 6, 0, 0}, 
+            {1, 3, 0, 0, 0, 0, 2, 5, 0},
+            {0, 0, 0, 0, 0, 0, 0, 7, 4},
+            {0, 0, 5, 2, 0, 6, 3, 0, 0}
+        }}
+    );
+    ASSERT_TRUE(board.isSolveable(board.getBoard(), 0, 0));
+}
 TEST(CellValueIsSetable)
 {
     Board board;
