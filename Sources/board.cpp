@@ -71,8 +71,8 @@ void Board::generateRandomBoard()
     srand(time(0));
     board = {};
     auto posList = generatePosList();
-    int i = 81;
-    while(!posList.empty())
+    int filledFieldsNum = 0;
+    while(filledFieldsNum < 18 && !posList.empty())
     {   
         int randomPosFromList = rand() % posList.size();
         auto randomIt = posList.begin() + randomPosFromList;
@@ -97,6 +97,7 @@ void Board::generateRandomBoard()
             }
             posList.erase(randomIt);
         }
+        filledFieldsNum++;
     }
 }
 

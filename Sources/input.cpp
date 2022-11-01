@@ -2,7 +2,7 @@
 
 void Input::handleInput(int row, int col, int val)
 {
-    if(validateInput(row, col, val))
+    if(validInput(row, col, val))
         board.setCell(row, col, val);
     else
     {
@@ -11,12 +11,12 @@ void Input::handleInput(int row, int col, int val)
             std::cout << "Illegal move! Give it another try!\n";
             std::cout << "Value: Row: Col:\n";
             std::cin >> val >> row >> col;
-        } while(not validateInput(row, col, val));
+        } while(not validInput(row, col, val));
         board.setCell(row, col, val);
     }
 }
 
-bool Input::validateInput(int row, int col, int val)
+bool Input::validInput(int row, int col, int val)
 {
     if(board.getCell(row, col) > 0)
         return false;

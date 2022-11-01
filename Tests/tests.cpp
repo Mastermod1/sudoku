@@ -1,9 +1,9 @@
 #include "unit_test_framework.h"
 #include "../Sources/board.cpp"
 
-
-// Validator
-TEST(ValueNotInSquare)
+// Input tests
+// Validator tests
+TEST(ValueNotInSquareForValidOperationInRealConditionsReturnsTrue)
 {
     Board board(
         {{
@@ -21,7 +21,7 @@ TEST(ValueNotInSquare)
     Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInSquare(8,0,7));
 }
-TEST(ValueNotInCol)
+TEST(ValueNotInColForValidOperationReturnsTrue)
 {
     Board board(
         {{
@@ -39,7 +39,7 @@ TEST(ValueNotInCol)
     Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInCol(0,7));
 }
-TEST(ValueNotInRow)
+TEST(ValueNotInRowForValidOperationReturnsTrue)
 {
     Board board(
         {{
@@ -57,7 +57,7 @@ TEST(ValueNotInRow)
     Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInRow(0,2));
 }
-TEST(SquaredCheckLikeInGamev2)
+TEST(SadeInsertOperationInRealConditionsForValidOperationReturnsTrue)
 {
     Board board(
         {{
@@ -75,25 +75,7 @@ TEST(SquaredCheckLikeInGamev2)
     Validator validator(board.getBoard());
     ASSERT_TRUE(validator.safeInsertOperation(0,1,1));
 }
-TEST(SquaredCheckLikeInGame)
-{
-    Board board(
-        {{
-            {3,0,6,0,0,0,0,0,0},
-            {5,2,0,0,0,0,0,0,0},
-            {0,8,7,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0}
-        }}
-    );
-    Validator validator(board.getBoard());
-    ASSERT_TRUE(validator.safeInsertOperation(0,1,1));
-}
-TEST(SquaredCheck)
+TEST(ValueNotInSquareForValidOperationReturnsTrue)
 {
     Board board(
         {{
@@ -111,7 +93,7 @@ TEST(SquaredCheck)
     Validator validator(board.getBoard());
     ASSERT_TRUE(validator.valueNotInSquare(1,1,9));
 }
-// Board tests from board.hpp
+// Board tests
 TEST(IsSolveableGivenSolveableBoardWithInputReturnsTrue)
 {
     Board board(
@@ -149,19 +131,60 @@ TEST(IsSolveableGivenSolveableBoardReturnsTrue)
 }
 TEST(CellValueIsSetable)
 {
-    Board board;
-    int row = 1;
-    int col = 2;
+    Board board(
+        {{
+            {3, 0, 6, 5, 0, 8, 4, 0, 0},
+            {5, 2, 0, 0, 0, 0, 0, 0, 0},
+            {0, 8, 7, 0, 0, 0, 0, 3, 1},
+            {0, 0, 3, 0, 1, 0, 0, 8, 0},
+            {9, 0, 0, 8, 6, 3, 0, 0, 5},
+            {0, 5, 0, 0, 9, 0, 6, 0, 0}, 
+            {1, 3, 0, 0, 0, 0, 2, 5, 0},
+            {0, 0, 0, 0, 0, 0, 0, 7, 4},
+            {0, 0, 5, 2, 0, 6, 3, 0, 0}
+        }}
+    );    
+    int row = 0;
+    int col = 1;
     int value = 1;
     board.setCell(row, col, value);
     ASSERT_EQUAL(board.getCell(row, col), value);
 }
-TEST(ConstructedReturns0FilledBoard)
+TEST(CellValueIsGetable)
 {
-    Board board;
-    for(int i = 0; i < 9; i++)
-        for(int j = 0; j < 9; j++)
-            ASSERT_EQUAL(board.getCell(i, j), 0);
+    Board board(
+        {{
+            {3, 0, 6, 5, 0, 8, 4, 0, 0},
+            {5, 2, 0, 0, 0, 0, 0, 0, 0},
+            {0, 8, 7, 0, 0, 0, 0, 3, 1},
+            {0, 0, 3, 0, 1, 0, 0, 8, 0},
+            {9, 0, 0, 8, 6, 3, 0, 0, 5},
+            {0, 5, 0, 0, 9, 0, 6, 0, 0}, 
+            {1, 3, 0, 0, 0, 0, 2, 5, 0},
+            {0, 0, 0, 0, 0, 0, 0, 7, 4},
+            {0, 0, 5, 2, 0, 6, 3, 0, 0}
+        }}
+    );    
+    int row = 0;
+    int col = 0;
+    ASSERT_EQUAL(board.getCell(row, col), 3);
+}
+TEST(BoardConstructedWithGridReturnsCorrectValue)
+{
+    std::array<std::array<int, 9>, 9> grid = 
+    {{
+        {3, 0, 6, 5, 0, 8, 4, 0, 0},
+        {5, 2, 0, 0, 0, 0, 0, 0, 0},
+        {0, 8, 7, 0, 0, 0, 0, 3, 1},
+        {0, 0, 3, 0, 1, 0, 0, 8, 0},
+        {9, 0, 0, 8, 6, 3, 0, 0, 5},
+        {0, 5, 0, 0, 9, 0, 6, 0, 0}, 
+        {1, 3, 0, 0, 0, 0, 2, 5, 0},
+        {0, 0, 0, 0, 0, 0, 0, 7, 4},
+        {0, 0, 5, 2, 0, 6, 3, 0, 0}
+    }};
+    Board board(grid);
+    ASSERT_EQUAL(board.getBoard(), grid);
 }
 
 TEST_MAIN()

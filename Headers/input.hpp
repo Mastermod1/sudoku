@@ -8,5 +8,5 @@ class Input : public Validator
         void handleInput(int row, int col, int val);
     private:
         Board& board;
-        bool validateInput(int row, int col, int val);
+        bool validInput(int row, int col, int val);
 };
