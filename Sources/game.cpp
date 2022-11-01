@@ -14,7 +14,7 @@ Game::Game()
         {0, 0, 0, 0, 0, 0, 0, 7, 4},
         {0, 0, 5, 2, 0, 6, 3, 0, 0}}
     };
-    board = Board(grid);
+    board = Board();
 }
 
 void Game::checkGameState()

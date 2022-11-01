@@ -9,7 +9,7 @@
 class Board
 {
     public:
-        Board() {board = {};}
+        Board() {generateRandomBoard();}
         Board(std::array<std::array<int, 9>, 9> givenBoard) {board = givenBoard;}
         int getCell(int row, int col) {return board[row][col];}
         void setCell(int row, int col, int val);
@@ -19,4 +19,6 @@ class Board
     private:
         std::array<std::array<int, 9>, 9> board;
         void generateRandomBoard();
+        std::vector<int> generateSafeValueList(int row, int col);
+        std::vector<std::pair<int,int>> generatePosList();
 };

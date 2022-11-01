@@ -42,30 +42,61 @@ bool Board::isSolveable(std::array<std::array<int, 9>, 9> grid, int row, int col
     return false;
 }
 
+std::vector<std::pair<int,int>> Board::generatePosList()
+{
+    std::vector<std::pair<int,int>> list;
+    for(int row = 0; row < 9; row++)
+    {
+        for(int col = 0; col < 9; col++)
+        {
+            list.push_back({row, col});
+        }
+    }
+    return list;
+}
+
+std::vector<int> Board::generateSafeValueList(int row, int col)
+{
+    std::vector<int> list;
+    for(int i = 1; i < 10; i++)
+    {
+        if(Validator(getBoard()).safeInsertOperation(row, col, i))
+            list.push_back(i);
+    }
+    return list;
+}
+
 void Board::generateRandomBoard()
 {   
     srand(time(0));
+    board = {};
+    auto posList = generatePosList();
+    int i = 81;
+    while(!posList.empty())
+    {   
+        int randomPosFromList = rand() % posList.size();
+        auto randomIt = posList.begin() + randomPosFromList;
 
-    std::vector<int> validValues;
+        int row = randomIt->first;
+        int col = randomIt->second;
 
-    while(!isFilled())
-    {
-        int row = rand() % 10;
-        int col = rand() % 10;
+        auto safeValuesList = generateSafeValueList(row, col);
 
-        if(getCell(row, col) > 0)
-            continue;
-        
-        for(int i = 1; i < 10; i++)
+        int pos = rand() % safeValuesList.size();
+        int randomValue = safeValuesList[pos];
+
+        if(Validator(getBoard()).safeInsertOperation(row, col, randomValue))
         {
-            if(Validator(getBoard()).safeInsertOperation(row, col, i))
-                validValues.push_back(i);
+            setCell(row, col, randomValue);
+            while(!isSolveable(getBoard(), 0, 0))
+            {
+                safeValuesList.erase(safeValuesList.begin() + pos);
+                pos = rand() % safeValuesList.size();
+                randomValue = safeValuesList[pos];
+                setCell(row, col, randomValue);
+            }
+            posList.erase(randomIt);
         }
-        if(isSolveable(getBoard(), 0, 0))
-            setCell(row, col, validValues[rand() % validValues.size()]);
     }
-
-    
-
-
 }
+
