@@ -2,7 +2,7 @@
 
 void Display::printBoard()
 {
-    system("clear");
+    system(CLR);
     std::cout << "   ";
     for(int i = 1; i <= 9; i++)
     {

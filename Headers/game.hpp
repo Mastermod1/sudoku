@@ -1,3 +1,9 @@
+#ifdef _WIN32
+#define CLR "cls"
+#else 
+#define CLR "clear"
+#endif 
+
 #pragma once
 #include <iostream>
 #include <array>
