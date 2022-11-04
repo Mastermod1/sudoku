@@ -11,4 +11,5 @@ class Input : public Validator
         Board& board;
         bool validInput(int row, int col, int val);
         std::vector<std::string> split(std::string string, char delimeter);
+        void Input::insertOperation(const std::vector<std::string>& parameters);
 };

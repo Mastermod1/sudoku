@@ -20,31 +20,33 @@ std::vector<std::string> Input::split(std::string string, char delimeter)
     return parts;
 }
 
+void Input::insertOperation(const std::vector<std::string>& parameters)
+{
+    int val = std::stoi(parameters[1]);   
+    int row = std::stoi(parameters[2]);
+    int col = std::stoi(parameters[3]);
+
+    if(validInput(row, col, val))
+        board.setCell(row, col, val);
+    else
+    {
+        do
+        {
+            std::cout << "Illegal move! Give it another try!\n";
+            std::cout << "Value: Row: Col:\n";
+            std::cin >> val >> row >> col;
+        } while(not validInput(row, col, val));
+        board.setCell(row, col, val);
+    }
+}
 
 void Input::handleInput(std::string command)
 {
     auto commandParameters = split(command, ' ');
-    char operationType = commandParameters[0].front();
+    char operationType = std::tolower(commandParameters[0].front());
 
-    if(std::tolower(operationType) == 'i')
-    {
-        int val = std::stoi(commandParameters[1]);   
-        int row = std::stoi(commandParameters[2]);
-        int col = std::stoi(commandParameters[3]);
-
-        if(validInput(row, col, val))
-            board.setCell(row, col, val);
-        else
-        {
-            do
-            {
-                std::cout << "Illegal move! Give it another try!\n";
-                std::cout << "Value: Row: Col:\n";
-                std::cin >> val >> row >> col;
-            } while(not validInput(row, col, val));
-            board.setCell(row, col, val);
-        }
-    }   
+    if(operationType == 'i')
+        insertOperation(commandParameters);
 }
 
 bool Input::validInput(int row, int col, int val)
