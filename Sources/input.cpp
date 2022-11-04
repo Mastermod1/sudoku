@@ -20,33 +20,30 @@ std::vector<std::string> Input::split(std::string string, char delimeter)
     return parts;
 }
 
-void Input::insertOperation(const std::vector<std::string>& parameters)
+void Input::insertOperation(const std::vector<std::string>& parameters, std::string& msg)
 {
     int val = std::stoi(parameters[1]);   
     int row = std::stoi(parameters[2]);
     int col = std::stoi(parameters[3]);
 
+    std::string defaultInsertMsg= "Value: Row: Col:\n";
+    msg = defaultInsertMsg;
+    
     if(validInput(row, col, val))
         board.setCell(row, col, val);
     else
-    {
-        do
-        {
-            std::cout << "Illegal move! Give it another try!\n";
-            std::cout << "Value: Row: Col:\n";
-            std::cin >> val >> row >> col;
-        } while(not validInput(row, col, val));
-        board.setCell(row, col, val);
-    }
+        msg = "Illegal move! Give it another try!\n" + defaultInsertMsg;
 }
 
-void Input::handleInput(std::string command)
+void Input::handleInput(std::string command, std::string& msg)
 {
     auto commandParameters = split(command, ' ');
     char operationType = std::tolower(commandParameters[0].front());
 
     if(operationType == 'i')
-        insertOperation(commandParameters);
+        insertOperation(commandParameters, msg);
+    if(operationType == 'q');
+        // quitOperation();
 }
 
 bool Input::validInput(int row, int col, int val)
