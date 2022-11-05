@@ -12,4 +12,6 @@ class Input : public Validator
         bool validInput(int row, int col, int val);
         std::vector<std::string> split(std::string string, char delimeter);
         void insertOperation(const std::vector<std::string>& parameters, std::string& msg);
+        void quitOperation();
+        void solveOperation();
 };

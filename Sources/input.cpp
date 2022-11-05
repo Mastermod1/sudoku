@@ -43,7 +43,18 @@ void Input::handleInput(std::string command, std::string& msg)
     if(operationType == 'i')
         insertOperation(commandParameters, msg);
     if(operationType == 'q');
-        // quitOperation();
+        quitOperation();
+    if(operationType == 's');
+        solveOperation();
+}
+void Input::quitOperation()
+{
+    exit(1);
+}
+
+void Input::solveOperation()
+{
+
 }
 
 bool Input::validInput(int row, int col, int val)
