@@ -4,11 +4,9 @@
 
 <h3>To do:</h3>
 <ul>
-    <li>random board initialization</li>
     <li>difficulty level selector</li>
-    <li>integrate Solver with Game Class</li>
     <li>handleInput() handles more actions</li>
-    <li>end game on end</li>
+    <li>implement operation modes: insert, command</li>
 </ul>
 
 <h3>Usage</h3>

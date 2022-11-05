@@ -17,9 +17,19 @@ void Game::checkGameState()
 void Game::startGameLoop()
 {
     Input input(board);
-    std::array<std::string, 2> endMsg = {"GG EZ! You won!\n","LOL, so bad loser!\n"};
+
     std::string command;
-    std::string responseMessage = "Value: Row: Col:\n";
+    std::string responseMessage = "";
+
+    display.printMenu();
+    std::string option = "";
+    getline(std::cin, option);
+    if(option == "1")
+        board.generateRandomBoard();
+
+    std::array<std::string, 2> endMsg = {"GG EZ! You won!\n","LOL, so bad loser!\n"};
+    responseMessage = "Value: Row: Col:\n";
+
     while(state == InProgress)
     {
         display.printBoard(board);

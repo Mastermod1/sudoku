@@ -27,6 +27,12 @@ void Display::printBoard(Board& board)
     printHorizontalLine(9 * 3 + 4);
 }
 
+void Display::printMenu()
+{
+    std::cout << "===Sudoku===\n";
+    std::cout << " 1. Start\n 2. Exit\n";
+}
+
 void Display::printHorizontalLine(int length)
 {
     std::string s(length, '=');
