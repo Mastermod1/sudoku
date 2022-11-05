@@ -14,7 +14,7 @@ void Game::checkGameState()
         state = Lost;
 }
 
-void Game::startGameLoop()
+void Game::startGame()
 {
     Input input(board);
 

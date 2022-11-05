@@ -23,7 +23,7 @@ class Game
 {
     public:
         Game();
-        void startGameLoop();
+        void startGame();
         void checkGameState();
     private:
         Board board;
