@@ -1,6 +1,6 @@
 #include "../Headers/display.hpp"
 
-void Display::printBoard()
+void Display::printBoard(Board& board)
 {
     system(CLR);
     std::cout << "   ";

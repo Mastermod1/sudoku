@@ -5,10 +5,9 @@
 class Display
 {
     public:
-        Display(Board& board) : board(board) {}
-        void printBoard();
+        Display(){}
+        void printBoard(Board& board);
         
     private:
-        Board& board;
         void printHorizontalLine(int length);
 };

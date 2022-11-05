@@ -27,5 +27,6 @@ class Game
         void checkGameState();
     private:
         Board board;
+        Display display;
         GameState state;
 };

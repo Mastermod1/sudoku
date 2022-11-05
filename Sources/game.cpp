@@ -16,14 +16,13 @@ void Game::checkGameState()
 
 void Game::startGameLoop()
 {
-    Display display(board);
     Input input(board);
     std::array<std::string, 2> endMsg = {"GG EZ! You won!\n","LOL, so bad loser!\n"};
     std::string command;
     std::string responseMessage = "Value: Row: Col:\n";
     while(state == InProgress)
     {
-        display.printBoard();
+        display.printBoard(board);
         std::cout << responseMessage;
         getline(std::cin, command);
         input.handleInput(command, responseMessage);
